@@ -13,6 +13,6 @@ class ProductServiceImpl : ProductService {
             .getObjectListSingle(Products::class.java)
     }
 
-} 
+}
 
 
