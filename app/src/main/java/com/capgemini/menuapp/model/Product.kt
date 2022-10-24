@@ -10,9 +10,9 @@ data class Product(
     @SerializedName("MenuTypeID")
     val MenuTypeID: Int,
     @SerializedName("Names")
-    val Names: Array<String>,
+    val Names: List<Name>,
     @SerializedName("Categories")
-    val Categories: Array<String>,
+    val Categories: List<Category>,
     @SerializedName("Recipe")
     val Recipe: Recipe
 )
