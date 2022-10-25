@@ -1,5 +1,5 @@
 package com.capgemini.menuapp.repository
-import com.capgemini.menuapp.api.ApiProductService
+import com.capgemini.menuapp.service.ProductService
 import io.reactivex.Single
 
 
