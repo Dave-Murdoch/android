@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Ingredient(
     @SerializedName("ProductCode")
-    val ProductCode: Int,
+    val productCode: Int,
     @SerializedName("MinQuantity")
-    val MinQuantity: Int,
+    val minQuantity: Int,
     @SerializedName("MaxQuantity")
-    val MaxQuantity: Int,
+    val maxQuantity: Int,
     @SerializedName("DefaultQuantity")
-    val DefaultQuantity: Int
+    val defaultQuantity: Int
 )
