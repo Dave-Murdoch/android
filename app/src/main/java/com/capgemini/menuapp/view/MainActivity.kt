@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
+        // This will work, but using the built-in ViewModelProvider provides some optimizations.
+        //productListViewModel = ViewModelFactory().create(ProductListViewModel::class.java)
+
         productListViewModel = ViewModelProvider(this, ViewModelFactory())
             .get(ProductListViewModel::class.java)
     }
