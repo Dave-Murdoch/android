@@ -23,8 +23,6 @@ class ProductListViewModel(private val productRepository: ProductRepository) : V
     private fun hydrateProducts() {
         disposable.add(
             productRepository.getProducts()
-               .subscribeOn(Schedulers.io())
-               .observeOn(AndroidSchedulers.mainThread())
                .subscribe({ productList ->
                    Log.d("DEBUG", "Success! ${productList.count()} products found.")
                    products.postValue(productList)
