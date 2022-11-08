@@ -37,6 +37,6 @@ class ProductListViewAdapter(
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return dataset.size
     }
 }
