@@ -19,7 +19,7 @@ class ProductListViewAdapter(
         parent: ViewGroup,
         viewType: Int
     ): DataViewHolder {
-        TODO("Check with other team for name of R.id.")
+
       // attachToRoot is false: RecyclerView attaches to the View Hierarchy at runtime
         val productView = LayoutInflater.from(context).inflate(R.id.item_layout,parent,false)
         return DataViewHolder(productView)
@@ -27,7 +27,7 @@ class ProductListViewAdapter(
 
     // Replaces contents of ListView
     override fun onBindViewHolder(
-        dataHolder: ProductListViewAdapter.DataViewHolder,
+        dataHolder: DataViewHolder,
         position: Int) {
 
         // Pull a product with a given position
@@ -50,8 +50,8 @@ class ProductListViewAdapter(
         private val productView: View
     ): RecyclerView.ViewHolder(productView){
         //Pull the TextView and the current position/product in our RecyclerView
-        // TODO("Check with other team for name of R.id.")
-        private val productId = productView.findViewById<TextView>(R.id.product_id)
+
+        private val productId = productView.findViewById<TextView>(R.id.textView)
 
         // Initialize to null to ensure we are not initializing with values already in use
         private var currentProduct: Product? = null
