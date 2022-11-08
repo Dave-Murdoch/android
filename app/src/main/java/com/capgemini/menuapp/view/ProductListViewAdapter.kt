@@ -33,7 +33,7 @@ class ProductListViewAdapter(
         // Pull a product with a given position
         val product = dataset[position]
         // Set the data for a product/position
-        dataHolder.setData(product,position)
+        dataHolder.bind(product,position)
 
         // Commented out until listeners are added
         // dataHolder.setListeners()
@@ -52,11 +52,13 @@ class ProductListViewAdapter(
         //Pull the TextView and the current position/product in our RecyclerView
         // TODO("Check with other team for name of R.id.")
         private val productId = productView.findViewById<TextView>(R.id.product_id)
+
+        // Initialize to null to ensure we are not initializing with values already in use
         private var currentProduct: Product? = null
         private var currentPosition: Int = -1
 
         // Set the data of the RecyclerView at a given position
-        fun setData(product: Product, position: Int){
+        fun bind(product: Product, position: Int){
             productId.text = product.id.toString()
             this.currentProduct = product
             this.currentPosition = position
