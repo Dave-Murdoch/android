@@ -45,6 +45,10 @@ class ProductListViewAdapter(
         return dataset.size
     }
 
+    fun addData(list: List<Product>){
+        dataset.addAll(list)
+    }
+
     //Create a ViewHolder to get and set the date
     inner class DataViewHolder(
         private val productView: View
