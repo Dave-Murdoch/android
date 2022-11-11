@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         setupViewModel()
+        setupUI()
+        setupObserver()
     }
 
     private fun setupUI() {
