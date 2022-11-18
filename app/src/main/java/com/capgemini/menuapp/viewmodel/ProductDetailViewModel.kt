@@ -8,13 +8,11 @@ import com.capgemini.menuapp.model.Product
 import com.capgemini.menuapp.repository.ProductRepository
 import io.reactivex.disposables.CompositeDisposable
 
-class ProductDetailViewModel(private val productRepository: ProductRepository, private val productId: Int): ViewModel() {
+class ProductDetailViewModel(private val productRepository: ProductRepository): ViewModel() {
     private val product =  MutableLiveData<Product?>()
     private val disposable = CompositeDisposable()
+    private var productId: Int = 0
 
-    init {
-        hydrateproduct()
-    }
 
     private fun hydrateproduct() {
         disposable.add(
@@ -37,6 +35,11 @@ class ProductDetailViewModel(private val productRepository: ProductRepository, p
 
     fun getProduct(): LiveData<Product?>{
         return product
+    }
+
+    fun setProduct(id: Int){
+        productId = id
+        hydrateproduct()
     }
 
 
