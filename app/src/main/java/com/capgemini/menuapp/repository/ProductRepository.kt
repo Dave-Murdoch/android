@@ -16,7 +16,6 @@ class ProductRepository(private val productService: ProductService) {
     }
 
     fun getProduct(productID: Int): Single<Product> {
-        getProducts()
         return getProducts().flattenAsObservable { it }
             .filter { it.id == productID }
             .firstOrError()

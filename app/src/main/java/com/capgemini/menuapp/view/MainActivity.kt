@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUI() {
         LinearLayoutManager(this).also { recyclerView.layoutManager = it }
-        adapter = ProductListViewAdapter(arrayListOf())
+        adapter = ProductListViewAdapter(this, arrayListOf())
         recyclerView.addItemDecoration(
             DividerItemDecoration(
                 recyclerView.context,

@@ -21,7 +21,7 @@ class ProductListViewAdapter(
     ): DataViewHolder {
 
       // attachToRoot is false: RecyclerView attaches to the View Hierarchy at runtime
-        val productView = LayoutInflater.from(context).inflate(R.id.item_layout,parent,false)
+        val productView = LayoutInflater.from(context).inflate(R.layout.item_layout,parent,false)
         return DataViewHolder(productView)
     }
 
