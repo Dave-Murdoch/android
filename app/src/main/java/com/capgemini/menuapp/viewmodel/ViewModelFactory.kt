@@ -6,7 +6,7 @@ import com.capgemini.menuapp.repository.ProductRepository
 import com.capgemini.menuapp.service.ProductServiceImpl
 
 class ViewModelFactory : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ProductListViewModel::class.java)) {
             return ProductListViewModel(ProductRepository(ProductServiceImpl())) as T
         }
