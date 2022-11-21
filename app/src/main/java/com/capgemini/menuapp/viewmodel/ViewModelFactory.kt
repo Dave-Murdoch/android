@@ -10,10 +10,10 @@ class ViewModelFactory : ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(ProductListViewModel::class.java)) {
             return ProductListViewModel(ProductRepository(ProductServiceImpl())) as T
         }
-        // TODO: Update DetailVM ctor signature once DetailVM is implemented.
-//        else if (modelClass.isAssignableFrom(ProductDetailViewModel::class.java)) {
-//            return ProductDetailViewModel() as T
-//        }
+
+        else if (modelClass.isAssignableFrom(ProductDetailViewModel::class.java)) {
+            return ProductDetailViewModel(productRepository = ProductRepository(ProductServiceImpl())) as T
+        }
         throw IllegalArgumentException("Uknown ViewModel class.")
     }
 }
