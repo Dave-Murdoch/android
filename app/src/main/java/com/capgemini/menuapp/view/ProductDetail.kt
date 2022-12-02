@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.capgemini.menuapp.R
 import com.capgemini.menuapp.viewmodel.ProductDetailViewModel
 import com.capgemini.menuapp.viewmodel.ViewModelFactory
@@ -29,7 +30,7 @@ class ProductDetail : AppCompatActivity() {
 
         setContentView(R.layout.fragment_product_detail)
         setupViewModel()
-        setupUI()
+        LinearLayoutManager(this)
         setupObserver()
 
     }
@@ -38,9 +39,7 @@ class ProductDetail : AppCompatActivity() {
         TODO("Not yet implemented")
     }
 
-    private fun setupUI() {
-        TODO("Not yet implemented")
-    }
+
 
     private fun setupViewModel() {
         productDetailViewModel = ViewModelProvider(this,
