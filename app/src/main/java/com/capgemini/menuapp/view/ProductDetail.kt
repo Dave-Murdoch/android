@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.capgemini.menuapp.R
+import com.capgemini.menuapp.viewmodel.ProductDetailViewModel
+import com.capgemini.menuapp.viewmodel.ViewModelFactory
 
 
 class ProductDetail : AppCompatActivity() {
+
+    lateinit var productDetailViewModel: ProductDetailViewModel
 
     companion object {
         const val PRODUCTID = "id"
@@ -21,10 +26,25 @@ class ProductDetail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        setContentView(R.layout.fragment_product_detail)
+        setupViewModel()
+        setupUI()
+        setupObserver()
+
+    }
+
+    private fun setupObserver() {
+        TODO("Not yet implemented")
+    }
+
+    private fun setupUI() {
+        TODO("Not yet implemented")
+    }
+
+    private fun setupViewModel() {
+        productDetailViewModel = ViewModelProvider(this,
+        ViewModelFactory()).get(ProductDetailViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -34,6 +54,8 @@ class ProductDetail : AppCompatActivity() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_product_detail, container, false)
     }
+
+
 
 
 
