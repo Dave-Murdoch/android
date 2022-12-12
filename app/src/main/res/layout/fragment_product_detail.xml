@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:ignore="MissingConstraints" />
-<!--        android:text="productId"-->
+
 
     <TextView
         android:layout_width="match_parent"
@@ -29,14 +29,12 @@
         android:id = "@+id/productName"
         app:layout_constraintTop_toBottomOf="@id/productId"
         />
-        <!--android:text="Product Name" -->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id = "@+id/recipe"
         app:layout_constraintTop_toBottomOf="@id/productName"/>
-<!--        android:text = "Recipe"-->
 
 
 

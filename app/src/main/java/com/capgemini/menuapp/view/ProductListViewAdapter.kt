@@ -36,7 +36,6 @@ class ProductListViewAdapter(
         // Set the data for a product/position
         dataHolder.bind(product,position)
 
-        // Commented out until listeners are added
         dataHolder.itemView.setOnClickListener {
             val intent = Intent(dataHolder.itemView.context, ProductDetail::class.java)
             intent.putExtra("ProductId", product.id)

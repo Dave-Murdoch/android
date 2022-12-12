@@ -62,7 +62,7 @@ class ProductDetail : AppCompatActivity() {
         }
         else
         {
-            findViewById<TextView>(R.id.recipe).text = ""
+            findViewById<TextView>(R.id.recipe).text = "No Ingredients"
         }
     }
 
