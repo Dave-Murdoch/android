@@ -33,11 +33,9 @@ class ProductDetail : AppCompatActivity() {
         val productId= intent.getIntExtra("ProductId", -1)
 
         productDetailViewModel.setProduct(productId)
-        productDetailViewModel.getProduct().observe (this,{
+        productDetailViewModel.getProduct().observe (this) {
             renderProduct(it)
-        })
-
-
+        }
 
 
     }
@@ -47,7 +45,7 @@ class ProductDetail : AppCompatActivity() {
         val productId = product?.id.toString()
         val productName = product?.names?.get(0)?.name
         val productRecipe = product?.recipe?.ingredients
-        var recipeText: String = ""
+        var recipeText = ""
 
         findViewById<TextView>(R.id.productId).text = "Product ID: " + productId
         findViewById<TextView>(R.id.productName).text ="Product Name: " + productName
