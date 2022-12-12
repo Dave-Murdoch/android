@@ -12,6 +12,7 @@ import com.capgemini.menuapp.R
 import com.capgemini.menuapp.model.Product
 import com.capgemini.menuapp.viewmodel.ProductDetailViewModel
 import com.capgemini.menuapp.viewmodel.ViewModelFactory
+import kotlinx.android.synthetic.main.fragment_product_detail.*
 import org.w3c.dom.Text
 import java.util.*
 
@@ -42,18 +43,18 @@ class ProductDetail : AppCompatActivity() {
 
     private fun renderProduct(product: Product?)
     {
-        val productId = product?.id.toString()
-        val productName = product?.names?.get(0)?.name
-        val productRecipe = product?.recipe?.ingredients
+        val productIdStr = product?.id.toString()
+        val productNameStr = product?.names?.find { it.language == "en-US" }?.name
+        val productRecipeStr = product?.recipe?.ingredients
         var recipeText = ""
 
-        findViewById<TextView>(R.id.productId).text = "Product ID: " + productId
-        findViewById<TextView>(R.id.productName).text ="Product Name: " + productName
+        findViewById<TextView>(R.id.productId).text = "Product ID: " + productIdStr
+        findViewById<TextView>(R.id.productName).text ="Product Name: " + productNameStr
 
-        if (productRecipe != null) {
-            for (ing in 0..productRecipe.size-1) {
+        if (productRecipeStr != null) {
+            for (ing in 0..productRecipeStr.size-1) {
                 recipeText =
-                    recipeText + "Ingredient: " + productRecipe.get(ing).productCode + "; Quantity: " + productRecipe.get(
+                    recipeText + "Ingredient: " + productRecipeStr.get(ing).productCode + "; Quantity: " + productRecipeStr.get(
                         ing
                     ).defaultQuantity + "\n"
             }
@@ -64,6 +65,7 @@ class ProductDetail : AppCompatActivity() {
             findViewById<TextView>(R.id.recipe).text = ""
         }
     }
+
 
 
 
