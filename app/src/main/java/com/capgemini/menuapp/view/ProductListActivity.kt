@@ -21,8 +21,8 @@ import com.capgemini.menuapp.view.ProductListViewAdapter
 import kotlinx.android.synthetic.main.fragment_first.*
 
 
-// TODO: Rename Activity to ProductListActivity
-class MainActivity : AppCompatActivity() {
+
+class ProductListActivity : AppCompatActivity() {
     private lateinit var productListViewModel: ProductListViewModel
     private lateinit var adapter: ProductListViewAdapter
 
