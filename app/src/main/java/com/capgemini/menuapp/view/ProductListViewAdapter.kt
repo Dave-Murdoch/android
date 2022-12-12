@@ -1,6 +1,7 @@
 package com.capgemini.menuapp.view
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,12 @@ class ProductListViewAdapter(
         dataHolder.bind(product,position)
 
         // Commented out until listeners are added
-        // dataHolder.setListeners()
+        dataHolder.itemView.setOnClickListener {
+            val intent = Intent(dataHolder.itemView.context, ProductDetail::class.java)
+            intent.putExtra("ProductId", product.id)
+            dataHolder.itemView.context.startActivity(intent)
+
+        }
 
     }
 

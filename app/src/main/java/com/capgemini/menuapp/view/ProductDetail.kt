@@ -1,58 +1,60 @@
 package com.capgemini.menuapp.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capgemini.menuapp.R
+import com.capgemini.menuapp.model.Product
 import com.capgemini.menuapp.viewmodel.ProductDetailViewModel
 import com.capgemini.menuapp.viewmodel.ViewModelFactory
+import java.util.*
 
 
 class ProductDetail : AppCompatActivity() {
 
     lateinit var productDetailViewModel: ProductDetailViewModel
 
-    companion object {
-        const val PRODUCTID = "id"
-    }
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.fragment_product_detail)
-        setupViewModel()
+        productDetailViewModel = ViewModelFactory().create(ProductDetailViewModel::class.java)
         LinearLayoutManager(this)
-        setupObserver()
+
+        val productId= intent.getIntExtra("ProductId", -1)
+
+        productDetailViewModel.setProduct(productId)
+        productDetailViewModel.getProduct().observe (this,{
+            renderProduct(it)
+        })
+
+
+
 
     }
 
-    private fun setupObserver() {
-        TODO("Not yet implemented")
+    private fun renderProduct(product: Product?)
+    {
+        val productId = product?.id.toString()
+        val productName = product?.names?.get(0)?.name
+        val productRecipe = product?.recipe?.ingredients
+
+        findViewById<TextView>(R.id.productId).text = productId
+        findViewById<TextView>(R.id.productName).text = productName
+        findViewById<TextView>(R.id.recipe).text = productRecipe.toString()
+
     }
 
 
 
-    private fun setupViewModel() {
-        productDetailViewModel = ViewModelProvider(this,
-        ViewModelFactory()).get(ProductDetailViewModel::class.java)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_detail, container, false)
-    }
 
 
 
