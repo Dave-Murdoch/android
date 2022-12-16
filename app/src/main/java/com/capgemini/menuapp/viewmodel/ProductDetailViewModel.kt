@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.capgemini.menuapp.model.Product
 import com.capgemini.menuapp.repository.ProductRepository
+import com.capgemini.menuapp.repository.ProductRepositoryImpl
 import io.reactivex.disposables.CompositeDisposable
 
 class ProductDetailViewModel(private val productRepository: ProductRepository): ViewModel() {
