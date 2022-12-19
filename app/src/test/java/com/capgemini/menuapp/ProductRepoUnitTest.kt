@@ -10,6 +10,7 @@ class ProductRepoUnitTest {
 
     val mockProductService = MockProductServiceImpl()
     val productRepository = ProductRepositoryImpl(mockProductService)
+    val testProdId = 312
 
 
     @Test
@@ -30,7 +31,7 @@ class ProductRepoUnitTest {
     @Test
     fun productNotNull()
     {
-        assertNotNull(productRepository.getProduct(312))
+        assertNotNull(productRepository.getProduct(testProdId))
     }
 
 //    @Test
@@ -57,7 +58,7 @@ class ProductRepoUnitTest {
 
     @Test
     fun testInstanceOfProduct() {
-        val subClass = productRepository.getProduct(312)
+        val subClass = productRepository.getProduct(testProdId)
         assertTrue(subClass is Single<Product>)
     }
 
