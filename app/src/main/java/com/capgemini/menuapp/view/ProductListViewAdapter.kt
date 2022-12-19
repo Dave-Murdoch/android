@@ -15,6 +15,7 @@ class ProductListViewAdapter(
     private val dataset: ArrayList<Product>):
     RecyclerView.Adapter<ProductListViewAdapter.DataViewHolder>() {
 
+
     // Inflating the product layout, returns type DataViewHolder
     override fun onCreateViewHolder(
         parent: ViewGroup,

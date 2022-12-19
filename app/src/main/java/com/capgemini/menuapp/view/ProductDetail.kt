@@ -21,9 +21,6 @@ class ProductDetail : AppCompatActivity() {
 
     lateinit var productDetailViewModel: ProductDetailViewModel
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

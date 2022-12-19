@@ -7,12 +7,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class ProductServiceImpl : ProductService {
+class ProductServiceImpl(private val url : String) : ProductService {
     override fun getProducts(): Single<List<Product>> {
-        return Rx2AndroidNetworking.get("https://63407b4fe44b83bc73d137ee.mockapi.io/api/v1/menu")
+        return Rx2AndroidNetworking.get(url)
             .build()
             .getObjectListSingle(Product::class.java)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 }
+
+//"https://63407b4fe44b83bc73d137ee.mockapi.io/api/v1/menu"
