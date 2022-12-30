@@ -48,7 +48,7 @@ class ViewModelUnitTest {
         val listViewModel = ProductListViewModel(mockProductRepo)
         val products = listViewModel.getProducts()
 
-        assertSame(products.value, mockProductRepo.getProducts().flattenAsObservable { it } )
+        assertSame(products.value, mockProductRepo.getProducts())
     }
 
 }
