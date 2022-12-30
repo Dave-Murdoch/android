@@ -51,26 +51,4 @@ class ViewModelUnitTest {
         assertSame(products.value, mockProductRepo.getProducts().flattenAsObservable { it } )
     }
 
-//    @Before
-//    fun setUpRxSchedulers() {
-//        val immediate: Scheduler = object : Scheduler() {
-//            override fun scheduleDirect(
-//                @NonNull run: Runnable,
-//                delay: Long,
-//                @NonNull unit: TimeUnit
-//            ): Disposable {
-//                // this prevents StackOverflowErrors when scheduling with a delay
-//                return super.scheduleDirect(run!!, 0, unit)
-//            }
-//
-//            override fun createWorker(): Worker {
-//                return ExecutorScheduler.ExecutorWorker(Runnable::run)
-//            }
-//        }
-//        RxJavaPlugins.setInitIoSchedulerHandler { scheduler: Callable<Scheduler?>? -> immediate }
-//        RxJavaPlugins.setInitComputationSchedulerHandler { scheduler: Callable<Scheduler?>? -> immediate }
-//        RxJavaPlugins.setInitNewThreadSchedulerHandler { scheduler: Callable<Scheduler?>? -> immediate }
-//        RxJavaPlugins.setInitSingleSchedulerHandler { scheduler: Callable<Scheduler?>? -> immediate }
-//        RxAndroidPlugins.setInitMainThreadSchedulerHandler { scheduler: Callable<Scheduler?>? -> immediate }
-//    }
 }
