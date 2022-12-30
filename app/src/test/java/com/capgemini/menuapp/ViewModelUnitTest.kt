@@ -21,8 +21,8 @@ import java.util.concurrent.TimeUnit
 
 class ViewModelUnitTest {
 
-    val mockProductRepo = MockProductRepoImpl(MockProductServiceImpl("/mocks/products.json"))
-    val listViewModel = ProductListViewModel(mockProductRepo)
+    val mockProductRepo = MockProductRepoImpl(MockProductServiceImpl("mocks/products.json"))
+
     val detailViewModel = ProductDetailViewModel(mockProductRepo)
 
 
@@ -34,11 +34,21 @@ class ViewModelUnitTest {
 
 
     @Test
-    fun hydrateProductsSuccessTest()
+    fun sameListCountTest()
     {
+        val listViewModel = ProductListViewModel(mockProductRepo)
         val products = listViewModel.getProducts()
 
-        assertEquals(products.value?.size, mockProductRepo.getProducts().flattenAsObservable { it }.count().blockingGet())
+        assertEquals(products.value!!.size, mockProductRepo.getProducts().flattenAsObservable { it }.count().blockingGet())
+    }
+
+    @Test
+    fun sameListElementsTest()
+    {
+        val listViewModel = ProductListViewModel(mockProductRepo)
+        val products = listViewModel.getProducts()
+
+        assertSame(products.value, mockProductRepo.getProducts().flattenAsObservable { it } )
     }
 
 //    @Before
