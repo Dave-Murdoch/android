@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
 
 class ViewModelUnitTest {
 
-    val mockProductRepo = MockProductRepoImpl(MockProductServiceImpl("mocks/products.json"))
+    val mockProductRepo = MockProductRepoImpl(MockProductServiceImpl("/mocks/products.json"))
 
     val detailViewModel = ProductDetailViewModel(mockProductRepo)
 
@@ -47,7 +47,7 @@ class ViewModelUnitTest {
     {
         val listViewModel = ProductListViewModel(mockProductRepo)
         val products = listViewModel.getProducts()
-
+        val products2 = mockProductRepo.getProducts()
         assertSame(products.value, mockProductRepo.getProducts())
     }
 

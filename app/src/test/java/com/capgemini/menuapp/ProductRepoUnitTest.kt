@@ -8,7 +8,7 @@ import org.junit.Test
 
 class ProductRepoUnitTest {
 
-    val mockProductService = MockProductServiceImpl("/mocks/products.json")
+    val mockProductService = MockProductServiceImpl("mocks/products.json")
     val productRepository = ProductRepositoryImpl(mockProductService)
     val testProdId = 312
 

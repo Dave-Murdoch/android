@@ -12,7 +12,7 @@ class MockProductServiceImpl(private val file : String): ProductService {
     lateinit var prodList: MutableList<Product>
 
     override fun getProducts(): Single<List<Product>> {
-        val json = this::class.java.classLoader.getResource(file).readText()
+        val json = this::class.java.getResource(file).readText()
         prodList = Gson().fromJson(json, object : TypeToken<MutableList<Product>>(){}.type)
         return Single.just(prodList)
     }
